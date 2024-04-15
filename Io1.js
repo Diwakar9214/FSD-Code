@@ -14,28 +14,34 @@ inp.on("line", (data) => {
 inp.on("close", () => {
   //start-here
   //Your code goes here … replace the below line with your code logic 
+  var length = parseInt(userInput[0])
 
-  let [num1,num2]=userInput[0].split(' ').map(number=>Number(number))
-
-  function calculateHCF(a, b) {
-    // Ensure both numbers are positive
-    a = Math.abs(a);
-    b = Math.abs(b);
-
-    // Apply the Euclidean algorithm
-    while (b !== 0) {
-        let temp = b;
-        b = a % b;
-        a = temp;
-    }
-
-    // At this point, 'a' contains the HCF
-    return a;
+  var elements = userInput[1].split(" ").map(Number)
+  
+  var count = 0;
+  
+  for(var j = 0; j<length; j++) {
+  var element = elements[j]
+  
+  count = 0
+  
+  for (var i = 0; i<length; i++) {
+  if(element == elements[i]) {
+  count += 1
+  
+  }
+  
+  }
+  
+  if(count == 2) {
+  console.log(element)
+  
+  return
+  
+  }
+  
 }
-
-
-
-// Calculate the HCF
-const hcf = calculateHCF(num1, num2);
-console.log("HCF:", hcf); // Output: 12
+  
+ 
+  //end-here
 });
